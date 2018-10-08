@@ -11,7 +11,7 @@ in clear text anymore. I needed the access badly, because my MacBook Pro was def
 of wine over it), my last backup was long ago and I didn't sync into iCloud.  
 
 So I found [apple_cloud_notes_parser](https://github.com/threeplanetssoftware/apple_cloud_notes_parser),
-a Perl script which showed me how to parse the data. However, they have a small bug in calculation the
+a Perl script which showed me how to parse the data. However, they have a small bug in calculating the
 length of the data, so you will get only the first 27 chars or so of the note.
 
 I decided to port the code to Java (ok, to Groovy) to be able to fix that. I could have adopted the
