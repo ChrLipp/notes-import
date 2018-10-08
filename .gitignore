@@ -1,0 +1,18 @@
+### Gradle ###
+.gradle
+/build/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
+
+### Logs ###
+/logs
+
+### Work data ###
+/input/*.pl
+/input/*.sqlite
+/output/*.txt
