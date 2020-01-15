@@ -39,8 +39,10 @@ Entry[] readEntries()
 void writeEntries(Entry[] entries)
 {
 	entries.each { entry ->
-		def output = new File("output/${entry.key}.txt")
-		output.text = getPlainText(decompress(entry.data)).trim()
+		if (entry.data) {
+			def output = new File("output/${entry.key}.txt")
+			output.text = getPlainText(decompress(entry.data)).trim()
+		}
 	}
 }
 

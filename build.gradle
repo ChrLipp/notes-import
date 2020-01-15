@@ -5,17 +5,17 @@ repositories {
 }
 
 wrapper {
-	gradleVersion = '4.5.1'
+	gradleVersion = '6.0.1'
 }
 
 dependencies {
-	final GROOVY_VERSION = '2.5.2'
+	final GROOVY_VERSION = '2.5.8'
 	final SQLITE_VERSION = '3.25.2'
 
-	compile "org.codehaus.groovy:groovy-all:${GROOVY_VERSION}"
-	compile 'ch.qos.logback:logback-classic:1.2.3'
-	compile "org.xerial:sqlite-jdbc:$SQLITE_VERSION"
-	compile 'commons-io:commons-io:2.6'
+	implementation "org.codehaus.groovy:groovy-all:${GROOVY_VERSION}"
+	implementation 'ch.qos.logback:logback-classic:1.2.3'
+	implementation "org.xerial:sqlite-jdbc:$SQLITE_VERSION"
+	implementation 'commons-io:commons-io:2.6'
 
 }
 
