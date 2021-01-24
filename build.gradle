@@ -5,11 +5,11 @@ repositories {
 }
 
 wrapper {
-	gradleVersion = '6.0.1'
+	gradleVersion = '6.8.1'
 }
 
 dependencies {
-	final GROOVY_VERSION = '2.5.8'
+	final GROOVY_VERSION = '3.0.7'
 	final SQLITE_VERSION = '3.25.2'
 
 	implementation "org.codehaus.groovy:groovy-all:${GROOVY_VERSION}"
