@@ -30,6 +30,6 @@ I also tried to copy the whole database to my new MacBook, but this didn't work.
 
 ## Versions
 
-openjdk version "15.0.1" 2020-10-20
-OpenJDK Runtime Environment (build 15.0.1+9)
-Groovy Version: 3.0.7 JVM: 15.0.1 Vendor: Oracle Corporation OS: Mac OS X
+    openjdk version "15.0.1" 2020-10-20
+    OpenJDK Runtime Environment (build 15.0.1+9)
+    Groovy Version: 3.0.7 JVM: 15.0.1 Vendor: Oracle Corporation OS: Mac OS X
