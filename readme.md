@@ -20,9 +20,10 @@ format, there are no HTML fragments any more.
 
 ## Usage
 
-Copy the database (location above) to the input folder, rename it to `NoteStore.sqlite` and receive a file per document in the output
-folder. Afterwards I created empty notes and copy/pasted the notes back to Apple Notes again (at this time
-with activated iCloud sync).
+Copy the database (location above) to the input folder, rename it to `NoteStore.sqlite` and start the
+script with `./gradlew runScript`. You will receive a file per document in the output folder.
+Afterwards I created empty notes and copy/pasted the notes back to Apple Notes again (at this time with
+activated iCloud sync).
 
 ## Remark
 
