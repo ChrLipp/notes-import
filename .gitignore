@@ -15,4 +15,4 @@
 ### Work data ###
 /input/*.pl
 /input/*.sqlite
-/output/*.txt
+/output/**/*.txt
