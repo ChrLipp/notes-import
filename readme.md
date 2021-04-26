@@ -15,8 +15,9 @@ a Perl script which showed me how to parse the data. However, they have a small 
 length of the data, so you will get only the first 27 chars or so of the note.
 
 I decided to port the code to Java (ok, to Groovy) to be able to fix that. I could have adopted the
-perl script but I thought I have to strip also the HTML fragments, but this was an error. In the new
-format, there are no HTML fragments any more.
+perl script but I thought I will have to strip the HTML fragments, but this was wrong. In the new
+format, there are no HTML fragments any more. Anyway, even if I used it only once, the script evolved
+based on feedback.
 
 ## Usage
 
@@ -29,8 +30,12 @@ activated iCloud sync).
 
 I also tried to copy the whole database to my new MacBook, but this didn't work.
 
-## Versions
+## Tested with
 
     openjdk version "15.0.1" 2020-10-20
     OpenJDK Runtime Environment (build 15.0.1+9)
     Groovy Version: 3.0.7 JVM: 15.0.1 Vendor: Oracle Corporation OS: Mac OS X
+
+## Acknowledgement
+
+- [Duncan Brown](https://github.com/duncanjbrown) provided a PR to obtain name, structure and creation timestamp for all notes
