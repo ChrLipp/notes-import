@@ -9,13 +9,15 @@ import java.util.zip.GZIPInputStream
 class Entry
 {
 	String key
+	Long date
+	String folder
+	String title
 	byte[] data
 }
 
 def log = LoggerFactory.getLogger('notes')
 def entries = readEntries()
 writeEntries(entries)
-
 
 Entry[] readEntries()
 {
@@ -26,11 +28,18 @@ Entry[] readEntries()
 	ResultSet rs
 	def result = []
 
-	rs = stmt.executeQuery('select Z_PK, ZDATA from ZICNOTEDATA')
+	rs = stmt.executeQuery(
+		'SELECT Z.Z_PK as key, _FOLDER.ZTITLE2 as folder, NOTEDATA.ZDATA as data, Z.ZCREATIONDATE1 as date, Z.ZTITLE1 as title FROM ZICCLOUDSYNCINGOBJECT as Z INNER JOIN ZICCLOUDSYNCINGOBJECT AS _FOLDER ON Z.ZFOLDER = _FOLDER.Z_PK INNER JOIN ZICNOTEDATA as NOTEDATA ON Z.ZNOTEDATA = NOTEDATA.Z_PK WHERE Z.Z_ENT = 8;'
+	)
+
 	while (rs.next()) {
-		def key = rs.getString('Z_PK')
-		def data = rs.getBytes('ZDATA')
-		result << new Entry(key: key, data: data)
+		def key = rs.getString('key')
+		// Core Date dates are later than UNIX dates by 978307200 seconds
+		def date = (rs.getLong('date') + 978307200) * 1000
+		def folder = rs.getString('folder')
+		def title = rs.getString('title')
+		def data = rs.getBytes('data')
+		result << new Entry(key: key, data: data, date: date, folder: folder, title: title)
 	}
 	conn.close()
 	result
@@ -39,9 +48,20 @@ Entry[] readEntries()
 void writeEntries(Entry[] entries)
 {
 	entries.each { entry ->
-		if (entry.data) {
-			def output = new File("output/${entry.key}.txt")
+		if(entry.data) {
+			def directoryPath = "output/${entry.folder}"
+			def directory = new File(directoryPath);
+			if (!directory.exists()){
+				directory.mkdir();
+			}
+
+			// Remove forward slashes from note titles
+			def filename = "${entry.key} - ${entry.title.replaceAll("/", "")}";
+			def filenameWithPath = "output/${entry.folder}/${filename}.txt"
+
+			def output = new File(filenameWithPath)
 			output.text = getPlainText(decompress(entry.data)).trim()
+			output.setLastModified(entry.date)
 		}
 	}
 }
