@@ -5,9 +5,9 @@ Apple Notes data is stored in a SQLite database. Some month ago the data has bee
 `/Users/<user>/Library/Containers/com.apple.Notes/Data/Library/Notes/NotesV7.storedata` respectively
 `NotesV6.storedata` for the prior version. The notes have been stored in a HTML subset in clear text.
 
-Then Apple kept the file but didn't update it anymore. Instead, a new location was used: 
+Then Apple kept the file but didn't update it anymore. Instead, a new location was used:
 `/Users/christian/Library/Group Containers/group.com.apple.notes/NoteStore.sqlite`. The data is not
-in clear text anymore. I needed the access badly, because my MacBook Pro was defect (spilled a bottle 
+in clear text anymore. I needed the access badly, because my MacBook Pro was defect (spilled a bottle
 of wine over it), my last backup was long ago and I didn't sync into iCloud.  
 
 So I found [apple_cloud_notes_parser](https://github.com/threeplanetssoftware/apple_cloud_notes_parser),
@@ -32,9 +32,9 @@ I also tried to copy the whole database to my new MacBook, but this didn't work.
 
 ## Tested with
 
-    openjdk version "15.0.1" 2020-10-20
-    OpenJDK Runtime Environment (build 15.0.1+9)
-    Groovy Version: 3.0.7 JVM: 15.0.1 Vendor: Oracle Corporation OS: Mac OS X
+    openjdk version "21.0.1" 2023-10-17
+    OpenJDK Runtime Environment Homebrew (build 21.0.1)
+    Groovy Version: 4.0.19
 
 ## Acknowledgement
 

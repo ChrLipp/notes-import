@@ -1,33 +1,33 @@
 apply plugin: 'groovy'
 
 repositories {
-	jcenter()
+	mavenCentral()
 }
 
 wrapper {
-	gradleVersion = '6.8.1'
+	gradleVersion = '8.6'
 }
 
 dependencies {
-	final GROOVY_VERSION = '3.0.7'
-	final SQLITE_VERSION = '3.25.2'
+	final GROOVY_VERSION = '4.0.19'
+	final SQLITE_VERSION = '3.45.1.0'
 
-	implementation "org.codehaus.groovy:groovy-all:${GROOVY_VERSION}"
-	implementation 'ch.qos.logback:logback-classic:1.2.3'
+	implementation "org.apache.groovy:groovy:${GROOVY_VERSION}"
+	implementation 'ch.qos.logback:logback-classic:1.5.3'
 	implementation "org.xerial:sqlite-jdbc:$SQLITE_VERSION"
-	implementation 'commons-io:commons-io:2.6'
+	implementation 'commons-io:commons-io:2.15.1'
 
 }
 
 // Java options
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
 
-task runScript(type: JavaExec) {
+tasks.register('runScript', JavaExec) {
 	description 'Run Groovy script'
 
 	// Set main property to name of Groovy script class.
-	main = 'notes'
+	mainClass = 'notes'
 
 	// Set classpath for running the Groovy script.
 	classpath = sourceSets.main.runtimeClasspath
