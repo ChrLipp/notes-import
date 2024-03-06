@@ -15,7 +15,6 @@ class Entry
 	byte[] data
 }
 
-def log = LoggerFactory.getLogger('notes')
 def entries = readEntries()
 writeEntries(entries)
 
@@ -47,6 +46,8 @@ Entry[] readEntries()
 
 void writeEntries(Entry[] entries)
 {
+	def log = LoggerFactory.getLogger('notes')
+
 	entries.each { entry ->
 		if(entry.data) {
 			def directoryPath = "output/${entry.folder}"
@@ -60,8 +61,19 @@ void writeEntries(Entry[] entries)
 			def filenameWithPath = "output/${entry.folder}/${filename}.txt"
 
 			def output = new File(filenameWithPath)
-			output.text = getPlainText(decompress(entry.data)).trim()
-			output.setLastModified(entry.date)
+			def content = getPlainText(decompress(entry.data)).trim()
+
+			try {
+				output.text = content
+				output.setLastModified(entry.date)
+			}
+			catch (Exception e) {
+				log.error("Could not write note!")
+				log.error("Filename: $filename")
+				log.error("Content : $content")
+				log.error("Reason  : ${e.toString()}")
+				log.error("--------------------------------")
+			}
 		}
 	}
 }

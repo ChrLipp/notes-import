@@ -16,3 +16,7 @@
 /input/*.pl
 /input/*.sqlite
 /output/**/*.txt
+
+
+### MacOS data ###
+.DS_Store
