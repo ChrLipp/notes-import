@@ -1,6 +1,7 @@
 # Apple Notes database parser
 
 ## About
+
 Apple Notes data is stored in a SQLite database. Some month ago the data has been stored in the file
 `/Users/<user>/Library/Containers/com.apple.Notes/Data/Library/Notes/NotesV7.storedata` respectively
 `NotesV6.storedata` for the prior version. The notes have been stored in a HTML subset in clear text.
@@ -39,3 +40,7 @@ I also tried to copy the whole database to my new MacBook, but this didn't work.
 ## Acknowledgement
 
 - [Duncan Brown](https://github.com/duncanjbrown) provided a PR to obtain name, structure and creation timestamp for all notes
+
+## Links
+
+- Found another statement, didn't test it: https://github.com/ydkhatri/mac_apt/issues/46#issuecomment-766418508
