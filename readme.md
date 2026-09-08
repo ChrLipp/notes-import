@@ -20,6 +20,10 @@ perl script but I thought I will have to strip the HTML fragments, but this was 
 format, there are no HTML fragments any more. Anyway, even if I used it only once, the script evolved
 based on feedback.
 
+I do not know what Z_ENT (see WHERE clause in `src/main/groovy/notes.groovy`, line 31) is for. In my case it had to be `8`,
+in [jdsteinbach](https://github.com/jdsteinbach)'s case the clause had to be removed,
+in [agnoski](https://github.com/agnoski)'s case it had to be `11`. So the user has to experiment to find his correct value.
+
 ## Usage
 
 Copy the database (location above) to the input folder, rename it to `NoteStore.sqlite` and start the
